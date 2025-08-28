@@ -1,11 +1,7 @@
-use std::error::Error;
-use std::io::{Error as IoError, ErrorKind};
+mod result_demo;
 
 fn main() {
-    let s: i32 = test().unwrap();
-}
-
-fn test() -> Result<i32, Box<dyn Error>> {
-    // return Ok(456);
-    Err(IoError::new(ErrorKind::Other, "some error").into())
+    if let Err(e) = result_demo::run() {
+        eprintln!("demo 运行错误: {}", e);
+    }
 }
